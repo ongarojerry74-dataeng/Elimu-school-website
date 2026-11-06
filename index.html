@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elimu School – a leading institution committed to academic excellence, holistic development, and producing tomorrow's leaders." />
+  <meta name="theme-color" content="#1E3A8A" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Elimu School – Nurturing Minds. Building Leaders." />
+  <meta property="og:description" content="An outstanding education that blends academic rigour with character development, preparing every student for a purposeful life of achievement and service." />
+  <meta property="og:type"        content="website" />
+
+  <!-- Inline SVG favicon via data URI -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231E3A8A'/%3E%3Cstop offset='100%25' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='18' cy='18' r='18' fill='url(%23g)'/%3E%3Ctext x='18' y='24' text-anchor='middle' font-family='sans-serif' font-size='18' font-weight='800' fill='%23fff'%3EE%3C/text%3E%3C/svg%3E" />
+
+  <title>Elimu School – Nurturing Minds. Building Leaders.</title>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS  (identical on both pages)
+    ============================================================ */
+    :root {
+      --blue-900:    #1E3A8A;
+      --blue-600:    #2563EB;
+      --blue-100:    #DBEAFE;
+      --purple-800:  #5B21B6;
+      --purple-600:  #7C3AED;
+      --purple-100:  #EDE9FE;
+      --bg-soft:     #F5F3FF;
+      --text:        #1F2937;
+      --white:       #FFFFFF;
+
+      --grad-primary: linear-gradient(135deg, var(--blue-900), var(--purple-600));
+      --grad-cta:     linear-gradient(135deg, var(--purple-600), var(--blue-900));
+
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      --radius:       0.75rem;
+      --shadow:       0 4px 24px rgba(30,58,138,.12);
+      --shadow-hover: 0 8px 32px rgba(124,58,237,.22);
+      --trans:        .28s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a   { color: var(--blue-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       FOCUS STYLES  (visible for keyboard users, WCAG 2.1 §2.4.7)
+    ============================================================ */
+    :focus-visible {
+      outline: 3px solid var(--purple-600);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ============================================================
+       SKIP LINK
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      background: var(--purple-600);
+      color: var(--white);
+      padding: .6rem 1.2rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-weight: 700;
+      font-size: .9rem;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; outline: none; text-decoration: none; color: var(--white); }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 { color: var(--blue-900); line-height: 1.2; font-weight: 700; }
+    h1 { font-size: clamp(1.9rem, 5vw, 3.25rem); }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); }
+    h3 { font-size: clamp(1.05rem, 2.5vw, 1.35rem); }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: min(92%, 1160px);
+      margin-inline: auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--purple-600);
+      margin-bottom: .5rem;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 54ch;
+      margin: 0 auto 3rem;
+    }
+    .section-header p { color: #4B5563; margin-top: .75rem; font-size: 1.05rem; }
+
+    /* ============================================================
+       BUTTONS  (identical on both pages)
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+      padding: .75rem 1.6rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background var(--trans), color var(--trans),
+                  border-color var(--trans), transform var(--trans),
+                  box-shadow var(--trans);
+      text-decoration: none;
+      line-height: 1;
+    }
+    /* Solid purple accent */
+    .btn-accent {
+      background: var(--purple-600);
+      color: var(--white);
+      border-color: var(--purple-600);
+    }
+    .btn-accent:hover {
+      background: var(--purple-800);
+      border-color: var(--purple-800);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(91,33,182,.35);
+      text-decoration: none; color: var(--white);
+    }
+    /* White outline */
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,.15);
+      transform: translateY(-2px);
+      text-decoration: none; color: var(--white);
+    }
+
+    /* ============================================================
+       SCROLL-REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ============================================================
+       HEADER / NAV  (identical on both pages)
+    ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(30,58,138,.10);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 0;
+      gap: 1rem;
+      position: relative;  /* anchor for absolute dropdown */
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      text-decoration: none;
+      color: var(--blue-900);
+      font-size: 1.25rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .nav-logo:hover { text-decoration: none; }
+    .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      display: block;
+      padding: .45rem .85rem;
+      color: var(--text);
+      font-weight: 600;
+      font-size: .92rem;
+      border-radius: .4rem;
+      transition: color var(--trans), background var(--trans);
+      text-decoration: none;
+    }
+    .nav-menu a:hover          { color: var(--blue-600); background: var(--blue-100); }
+    .nav-menu a[aria-current]  { color: var(--purple-600); background: var(--purple-100); }
+
+    /* Hamburger button */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 2px solid var(--blue-900);
+      border-radius: .4rem;
+      cursor: pointer;
+      padding: .35rem .45rem;
+      color: var(--blue-900);
+      line-height: 0;
+    }
+
+    /* ── Mobile nav ── */
+    @media (max-width: 599px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: calc(100% + 2px);
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 8px 24px rgba(30,58,138,.12);
+        padding: .75rem;
+        gap: .1rem;
+        z-index: 200;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { font-size: 1rem; padding: .7rem 1rem; }
+      /* Apply button sits full-width on mobile */
+      .nav-menu .btn-accent { text-align: center; justify-content: center; border-radius: .4rem; }
+    }
+
+    /* ── Tablet (600-899px): show menu, tighten spacing ── */
+    @media (min-width: 600px) and (max-width: 899px) {
+      .nav-menu .btn-accent { padding: .45rem 1rem; font-size: .82rem; }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--grad-primary);
+      padding: 4.5rem 0 8rem;
+      display: flex;
+      align-items: center;
+    }
+    /* Dot-pattern overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.12) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      z-index: 1;
+    }
+    .hero-content { color: var(--white); }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1    { color: var(--white); margin-bottom: 1.1rem; }
+    .hero-sub   {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(255,255,255,.9);   /* #E5E7EB equivalent – passes AA on dark grad */
+      max-width: 52ch;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    /* SVG illustration – hidden on mobile, shown ≥900px */
+    .hero-illustration { display: none; }
+    @media (min-width: 900px) {
+      .hero-inner         { grid-template-columns: 1fr 1fr; }
+      .hero-illustration  { display: flex; justify-content: center; align-items: center; }
+      .hero               { padding-bottom: 9rem; }
+    }
+
+    /* ============================================================
+       STATS STRIP
+    ============================================================ */
+    .stats-wrapper {
+      margin-top: -3.5rem;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 3.5rem;
+    }
+    .stats-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-item {
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid var(--blue-100);
+      border-bottom: 1px solid var(--blue-100);
+    }
+    /* Remove right border from last in each row, remove bottom from last row */
+    .stat-item:nth-child(2n)   { border-right: none; }
+    .stat-item:nth-child(n+3)  { border-bottom: none; }
+
+    .stat-number {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: var(--blue-600);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      display: block;
+      margin-top: .35rem;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--purple-600);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    @media (min-width: 600px) {
+      .stats-card { grid-template-columns: repeat(4, 1fr); }
+      .stat-item  { border-bottom: none; }
+      .stat-item:nth-child(2n)  { border-right: 1px solid var(--blue-100); }
+      .stat-item:last-child     { border-right: none; }
+    }
+
+    /* ============================================================
+       WHY ELIMU
+    ============================================================ */
+    .why-section { background: var(--bg-soft); padding: 4.5rem 0; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 600px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .why-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+      border: 2px solid transparent;
+      transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+    }
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--purple-600);   /* single-color fallback – border-image can't combine with border-radius on all browsers */
+    }
+    .why-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--purple-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.1rem;
+    }
+    .why-card h3  { color: var(--blue-900); margin-bottom: .55rem; font-size: 1.05rem; }
+    .why-card p   { color: #4B5563; font-size: .93rem; line-height: 1.6; }
+
+    /* ============================================================
+       ACADEMIC PROGRAMMES – TABS
+    ============================================================ */
+    .programmes-section { padding: 4.5rem 0; }
+
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      list-style: none;
+      border-bottom: 2px solid var(--blue-100);
+    }
+    .tab-btn {
+      padding: .65rem 1.4rem;
+      font-size: .95rem;
+      font-weight: 700;
+      border-radius: .5rem .5rem 0 0;
+      border: 2px solid var(--blue-600);
+      border-bottom: none;
+      background: transparent;
+      color: var(--blue-900);
+      cursor: pointer;
+      position: relative;
+      bottom: -2px;
+      transition: background var(--trans), color var(--trans);
+    }
+    .tab-btn[aria-selected="true"] {
+      background: var(--purple-600);
+      color: var(--white);
+      border-color: var(--purple-600);
+    }
+    .tab-panel            { display: none; }
+    .tab-panel.active     { display: block; animation: panelIn .35s ease; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { @keyframes panelIn { from {} to {} } }
+
+    .tab-panel-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: var(--bg-soft);
+      border-radius: 0 var(--radius) var(--radius) var(--radius);
+      padding: 2rem;
+      margin-top: 0;
+    }
+    @media (min-width: 600px) { .tab-panel-inner { grid-template-columns: 1fr 1fr; } }
+
+    .tab-panel h3 { color: var(--blue-900); margin-bottom: .75rem; }
+    .tab-panel p  { color: #374151; margin-bottom: 1rem; }
+    .subject-heading {
+      color: var(--blue-900);
+      margin-bottom: .75rem;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 700;
+    }
+    .subject-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .subject-list li {
+      background: var(--purple-100);
+      color: var(--purple-800);
+      border-radius: 2rem;
+      padding: .3rem .9rem;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       NEWS & EVENTS
+    ============================================================ */
+    .news-section { padding: 4.5rem 0; background: var(--bg-soft); }
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 600px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .news-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--trans), box-shadow var(--trans);
+    }
+    .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+    .news-img-placeholder {
+      height: 140px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+      /* SWAP: replace 'background' with background-image:url('images/news-X.jpg') */
+    }
+    .news-body {
+      padding: 1.25rem 1.5rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-date-badge {
+      display: inline-block;
+      background: var(--purple-600);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .75rem;
+      border-radius: 2rem;
+      margin-bottom: .75rem;
+      width: fit-content;
+    }
+    .news-card h3   { color: var(--blue-900); font-size: 1.05rem; margin-bottom: .5rem; }
+    .news-card p    { color: #4B5563; font-size: .9rem; flex: 1; }
+    .read-more {
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .3em;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--blue-600);
+    }
+    .read-more:hover { color: var(--purple-600); text-decoration: none; }
+
+    /* ============================================================
+       TESTIMONIALS CAROUSEL
+    ============================================================ */
+    .testimonials-section { padding: 4.5rem 0; background: var(--blue-100); }
+
+    .carousel-wrapper { position: relative; overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      transition: transform .5s ease;
+    }
+    @media (prefers-reduced-motion: reduce) { .carousel-track { transition: none; } }
+
+    .carousel-slide { min-width: 100%; padding: 0 .5rem; }
+
+    .quote-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .quote-mark {
+      font-size: 4.5rem;
+      line-height: .6;
+      color: var(--purple-600);
+      font-family: Georgia, serif;
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .quote-text {
+      font-size: 1.05rem;
+      color: #374151;      /* passes AA on white */
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .quote-author { display: flex; align-items: center; gap: .85rem; }
+    .avatar-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .quote-author-name { font-weight: 700; color: var(--blue-900); font-size: .95rem; }
+    .quote-author-role { font-size: .82rem; color: var(--purple-800); } /* darker purple for AA on white */
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--blue-600);
+      color: var(--blue-600);        /* #2563EB on white = 5.9:1 – AA pass */
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background var(--trans), color var(--trans), border-color var(--trans);
+    }
+    .carousel-btn:hover {
+      background: var(--purple-600);
+      border-color: var(--purple-600);
+      color: var(--white);
+    }
+    .carousel-dots { display: flex; gap: .5rem; list-style: none; }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      opacity: .35;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: opacity var(--trans), background var(--trans);
+    }
+    .dot.active { background: var(--purple-600); opacity: 1; }
+
+    /* ============================================================
+       CLOSING CTA BAND  (identical on both pages)
+    ============================================================ */
+    .cta-band {
+      background: var(--grad-cta);
+      padding: 5rem 0;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-band h2 { color: var(--white); margin-bottom: .75rem; }
+    .cta-band p  {
+      color: rgba(255,255,255,.9);
+      max-width: 50ch;
+      margin: 0 auto 2.2rem;
+      font-size: 1.05rem;
+    }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* White solid button used inside CTA band */
+    .btn-white-solid {
+      background: var(--white);
+      color: var(--purple-800);   /* #5B21B6 on white = 8.6:1 – AAA pass */
+      border-color: var(--white);
+      font-weight: 700;
+    }
+    .btn-white-solid:hover {
+      background: var(--purple-100);
+      color: var(--purple-800);
+      border-color: var(--purple-100);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       FOOTER  (identical on both pages)
+    ============================================================ */
+    .site-footer {
+      background: var(--blue-900);
+      color: rgba(255,255,255,.82);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 600px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+    .footer-logo { color: var(--white); margin-bottom: 1rem; }
+    .footer-brand p { font-size: .9rem; line-height: 1.65; color: rgba(255,255,255,.72); }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul  { list-style: none; }
+    .footer-col li  { margin-bottom: .5rem; }
+    .footer-col a   { color: rgba(255,255,255,.75); font-size: .9rem; transition: color var(--trans); }
+    .footer-col a:hover { color: var(--purple-100); text-decoration: none; }
+    .footer-addr    { color: rgba(255,255,255,.72); font-size: .9rem; line-height: 1.5; font-style: normal; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      font-size: .84rem;
+      color: rgba(255,255,255,.55);
+    }
+    .footer-bottom a { color: rgba(255,255,255,.55); }
+    .footer-bottom a:hover { color: rgba(255,255,255,.85); text-decoration: none; }
+
+    /* ============================================================
+       CONTACT FORM  (styles shared; form lives on about.html)
+    ============================================================ */
+    .contact-section { padding: 4.5rem 0; background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start;
+    }
+    @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1.6fr; } }
+    .contact-info h3 { margin-bottom: 1.25rem; }
+    .contact-detail {
+      display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--purple-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block; font-size: .85rem; font-weight: 700;
+      color: var(--blue-900); text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: .2rem;
+    }
+    .contact-detail-text a,
+    .contact-detail-text span { color: #374151; font-size: .95rem; }
+    .contact-detail-text a:hover { color: var(--purple-600); }
+    .contact-form-card {
+      background: var(--bg-soft); border-radius: var(--radius);
+      padding: 2.5rem 2rem; box-shadow: var(--shadow);
+    }
+    .contact-form-card h3 { margin-bottom: 1.75rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    @media (min-width: 600px) { .form-row.two-col { grid-template-columns: 1fr 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .88rem; font-weight: 700; color: var(--blue-900); }
+    .form-group label .req { color: var(--purple-600); margin-left: .15em; }
+    .form-control {
+      width: 100%; padding: .7rem 1rem;
+      border: 2px solid var(--blue-100); border-radius: .5rem;
+      font-family: var(--font); font-size: .95rem; color: var(--text);
+      background: var(--white); appearance: none;
+      transition: border-color var(--trans), box-shadow var(--trans);
+    }
+    .form-control::placeholder { color: #9CA3AF; }
+    .form-control:focus {
+      outline: none; border-color: var(--purple-600);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.18);
+    }
+    .form-control[aria-invalid="true"] {
+      border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,.15);
+    }
+    textarea.form-control { resize: vertical; min-height: 140px; }
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .75rem center; padding-right: 2.5rem;
+    }
+    .form-submit-row { margin-top: 1.75rem; display: flex; flex-direction: column; gap: .75rem; }
+    .btn-form-submit {
+      background: var(--purple-600); color: var(--white);
+      border: 2px solid var(--purple-600); border-radius: 2rem;
+      padding: .85rem 2rem; font-family: var(--font);
+      font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%;
+      transition: background var(--trans), border-color var(--trans),
+                  transform var(--trans), box-shadow var(--trans);
+    }
+    .btn-form-submit:hover:not(:disabled) {
+      background: var(--purple-800); border-color: var(--purple-800);
+      transform: translateY(-2px); box-shadow: 0 6px 20px rgba(91,33,182,.35);
+    }
+    .btn-form-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .btn-form-submit:focus-visible { outline: 3px solid var(--purple-600); outline-offset: 3px; }
+    .form-status {
+      display: none; border-radius: .5rem;
+      padding: 1rem 1.25rem; font-size: .95rem; font-weight: 600;
+    }
+    .form-status.success {
+      display: block; background: #D1FAE5; color: #065F46; border: 1.5px solid #6EE7B7;
+    }
+    .form-status.error {
+      display: block; background: #FEE2E2; color: #7F1D1D; border: 1.5px solid #FCA5A5;
+    }
+    .field-error { font-size: .8rem; color: #B91C1C; font-weight: 600; display: none; }
+    .field-error.visible { display: block; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SKIP LINK
+  ============================================================ -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ============================================================
+       HEADER / NAV
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Elimu School – go to homepage">
+        <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1E3A8A"/>
+              <stop offset="100%" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="18" cy="18" r="18" fill="url(#logo-grad)"/>
+          <text x="18" y="24" text-anchor="middle"
+                font-family="-apple-system,sans-serif" font-size="18"
+                font-weight="800" fill="#fff">E</text>
+        </svg>
+        Elimu School
+      </a>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+             aria-hidden="true" focusable="false">
+          <line x1="2" y1="5"  x2="20" y2="5"/>
+          <line x1="2" y1="11" x2="20" y2="11"/>
+          <line x1="2" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
+
+      <!-- Primary nav -->
+      <nav aria-label="Primary navigation">
+        <ul class="nav-menu" id="main-nav" role="list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#programmes">Programmes</a></li>
+          <li><a href="#news">News &amp; Events</a></li>
+          <li><a href="#admissions" class="btn btn-accent"
+                 style="padding:.5rem 1.1rem;font-size:.88rem;">Apply Now</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════
+         SECTION 1 · HERO
+    ══════════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+
+        <!-- Copy -->
+        <div class="hero-content">
+          <span class="hero-eyebrow">🎓 Welcome to Elimu School</span>
+          <h1 id="hero-heading">
+            Nurturing Minds.<br>Building Leaders.
+          </h1>
+          <p class="hero-sub">
+            An outstanding education that blends academic rigour with
+            character development — preparing every student for a
+            purposeful life of achievement and service.
+          </p>
+          <div class="hero-actions">
+            <a href="#admissions" class="btn btn-accent">Apply Now</a>
+            <a href="about.html"  class="btn btn-outline-white">Take a Virtual Tour</a>
+          </div>
+        </div>
+
+        <!-- Decorative SVG (desktop only) -->
+        <!-- SWAP: replace this <div> with <img src="images/hero-students.jpg" alt="Students at Elimu School"> -->
+        <div class="hero-illustration" aria-hidden="true">
+          <svg width="420" height="320" viewBox="0 0 420 320" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sky"      x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#3B82F6" stop-opacity=".28"/>
+                <stop offset="100%" stop-color="#7C3AED" stop-opacity=".06"/>
+              </linearGradient>
+              <linearGradient id="bldg"     x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#1E3A8A"/>
+                <stop offset="100%" stop-color="#5B21B6"/>
+              </linearGradient>
+              <linearGradient id="roof-svg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#7C3AED" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#2563EB"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="320" fill="url(#sky)" rx="16"/>
+            <!-- Ground -->
+            <ellipse cx="210" cy="300" rx="185" ry="24" fill="rgba(124,58,237,.18)"/>
+            <!-- Building -->
+            <rect x="82" y="130" width="256" height="155" rx="4" fill="url(#bldg)"/>
+            <!-- Roof -->
+            <polygon points="72,130 210,55 348,130" fill="url(#roof-svg)"/>
+            <!-- Windows row 1 -->
+            <rect x="108" y="153" width="34" height="38" rx="3" fill="rgba(219,234,254,.85)"/>
+            <rect x="158" y="153" width="34" height="38" rx="3" fill="rgba(219,234,254,.85)"/>
+            <rect x="218" y="153" width="34" height="38" rx="3" fill="rgba(219,234,254,.85)"/>
+            <rect x="268" y="153" width="34" height="38" rx="3" fill="rgba(219,234,254,.85)"/>
+            <!-- Windows row 2 -->
+            <rect x="108" y="205" width="34" height="38" rx="3" fill="rgba(219,234,254,.7)"/>
+            <rect x="158" y="205" width="34" height="38" rx="3" fill="rgba(219,234,254,.7)"/>
+            <rect x="218" y="205" width="34" height="38" rx="3" fill="rgba(219,234,254,.7)"/>
+            <rect x="268" y="205" width="34" height="38" rx="3" fill="rgba(219,234,254,.7)"/>
+            <!-- Door -->
+            <rect x="185" y="245" width="50" height="40" rx="4" fill="rgba(255,255,255,.25)"/>
+            <circle cx="229" cy="267" r="3" fill="rgba(255,255,255,.8)"/>
+            <!-- Flag pole -->
+            <line x1="210" y1="55" x2="210" y2="18" stroke="white" stroke-width="2.5"/>
+            <rect x="210" y="18" width="26" height="14" rx="2" fill="#7C3AED"/>
+            <!-- Trees -->
+            <circle cx="54"  cy="258" r="26" fill="rgba(34,197,94,.55)"/>
+            <rect   x="48"   cy="268" width="12" height="17" rx="2" fill="rgba(34,197,94,.4)"
+                    y="268"/>
+            <circle cx="366" cy="262" r="22" fill="rgba(34,197,94,.55)"/>
+            <rect   x="360" y="273" width="12" height="14" rx="2" fill="rgba(34,197,94,.4)"/>
+            <!-- Accent circles -->
+            <circle cx="52"  cy="75"  r="5" fill="rgba(255,255,255,.55)"/>
+            <circle cx="372" cy="90"  r="4" fill="rgba(219,234,254,.7)"/>
+            <circle cx="390" cy="195" r="6" fill="rgba(255,255,255,.28)"/>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 2 · STATS STRIP
+    ══════════════════════════════════════════ -->
+    <div class="stats-wrapper">
+      <div class="container">
+        <div class="stats-card" id="stats-card" aria-label="School at a glance">
+          <div class="stat-item">
+            <span class="stat-number" data-target="1200" data-suffix="+">1,200+</span>
+            <span class="stat-label">Students</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="80" data-suffix="+">80+</span>
+            <span class="stat-label">Teachers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="25" data-suffix="">25</span>
+            <span class="stat-label">Years of Excellence</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="98" data-suffix="%">98%</span>
+            <span class="stat-label">Exam Pass Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 3 · WHY ELIMU
+    ══════════════════════════════════════════ -->
+    <section class="why-section" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Why Choose Us</span>
+          <h2 id="why-heading">An Education Worth Choosing</h2>
+          <p>
+            Every aspect of life at Elimu is designed to help students
+            discover their potential and grow into well-rounded individuals.
+          </p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <div class="why-icon" aria-hidden="true">🎓</div>
+            <h3>Qualified Teachers</h3>
+            <p>All educators hold advanced degrees and undergo continuous professional
+               development to bring the best teaching practices into every classroom.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon" aria-hidden="true">🔬</div>
+            <h3>Modern Labs &amp; Library</h3>
+            <p>Fully equipped science labs and a well-stocked library with digital
+               resources give students hands-on access to knowledge.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon" aria-hidden="true">⚽</div>
+            <h3>Sports &amp; Clubs</h3>
+            <p>From athletics to debate, drama to coding club — a rich co-curricular
+               programme that builds teamwork, confidence, and lifelong interests.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon" aria-hidden="true">🛡️</div>
+            <h3>Safe, Caring Environment</h3>
+            <p>A dedicated pastoral care team and clear safeguarding policies ensure
+               every student feels secure, valued, and ready to learn.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 4 · ACADEMIC PROGRAMMES (TABS)
+    ══════════════════════════════════════════ -->
+    <section class="programmes-section" id="programmes" aria-labelledby="prog-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Academic Programmes</span>
+          <h2 id="prog-heading">A Curriculum for Every Stage</h2>
+          <p>Structured academic pathways supporting learners from primary through
+             senior secondary with age-appropriate rigour and care.</p>
+        </div>
+
+        <!-- Tablist -->
+        <div role="tablist" aria-label="Academic programme levels" class="tabs-nav">
+          <button class="tab-btn" role="tab" id="tab-primary"
+                  aria-controls="panel-primary" aria-selected="true"
+                  tabindex="0">Primary</button>
+          <button class="tab-btn" role="tab" id="tab-junior"
+                  aria-controls="panel-junior" aria-selected="false"
+                  tabindex="-1">Junior Secondary</button>
+          <button class="tab-btn" role="tab" id="tab-senior"
+                  aria-controls="panel-senior" aria-selected="false"
+                  tabindex="-1">Senior Secondary</button>
+        </div>
+
+        <!-- Panel: Primary -->
+        <div id="panel-primary" role="tabpanel" aria-labelledby="tab-primary"
+             class="tab-panel active">
+          <div class="tab-panel-inner">
+            <div>
+              <h3>Primary School (Grade 1–6)</h3>
+              <p>Our primary programme lays a strong literacy and numeracy foundation
+                 while nurturing natural curiosity through project-based learning.
+                 Small class sizes ensure every child gets individual attention.</p>
+              <p>Pastoral care, mother-tongue language support, and an active sports
+                 and arts programme complete a joyful, holistic early education.</p>
+            </div>
+            <div>
+              <p class="subject-heading">Subjects Offered</p>
+              <ul class="subject-list">
+                <li>English</li><li>Kiswahili</li><li>Mathematics</li>
+                <li>Science &amp; Technology</li><li>Social Studies</li>
+                <li>Creative Arts</li><li>Physical Education</li>
+                <li>Religious Education</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Junior Secondary -->
+        <div id="panel-junior" role="tabpanel" aria-labelledby="tab-junior"
+             class="tab-panel" hidden>
+          <div class="tab-panel-inner">
+            <div>
+              <h3>Junior Secondary (Grade 7–9)</h3>
+              <p>Aligned with the Competency-Based Curriculum (CBC), this level deepens
+                 subject knowledge while building critical thinking, digital literacy,
+                 and collaborative skills.</p>
+              <p>Students explore career pathways: Arts &amp; Sports Science, Social
+                 Sciences, STEM, and Technical &amp; Applied Studies.</p>
+            </div>
+            <div>
+              <p class="subject-heading">Subjects Offered</p>
+              <ul class="subject-list">
+                <li>English</li><li>Kiswahili</li><li>Mathematics</li>
+                <li>Integrated Science</li><li>Social Studies</li>
+                <li>Agriculture</li><li>Business Studies</li>
+                <li>ICT</li><li>Creative Arts</li><li>French</li><li>German</li><li>Music</li><li>Aviation Studies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Senior Secondary -->
+        <div id="panel-senior" role="tabpanel" aria-labelledby="tab-senior"
+             class="tab-panel" hidden>
+          <div class="tab-panel-inner">
+            <div>
+              <h3>Senior Secondary (Grade 10–12)</h3>
+              <p>Students select a specialisation pathway and sit national examinations
+                 that open doors to Kenya's top universities and global institutions.
+                 Our pass rate consistently outperforms the national average.</p>
+              <p>Dedicated university guidance, interview coaching, and scholarship
+                 support are available to all Form 4 students.</p>
+            </div>
+            <div>
+              <p class="subject-heading">Subjects Offered</p>
+              <ul class="subject-list">
+                <li>English</li><li>Kiswahili</li><li>Mathematics</li>
+                <li>Biology</li><li>Chemistry</li><li>Physics</li>
+                <li>History</li><li>Geography</li><li>Business</li>
+                <li>Computer Science</li><li>French</li><li>German</li><li>Music</li><li>Aviation Studies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 5 · NEWS & EVENTS
+    ══════════════════════════════════════════ -->
+    <section class="news-section" id="news" aria-labelledby="news-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Latest from Campus</span>
+          <h2 id="news-heading">News &amp; Events</h2>
+          <p>Stay connected with what's happening at Elimu School.</p>
+        </div>
+        <div class="news-grid">
+
+          <article class="news-card reveal">
+            <div class="news-img-placeholder"
+                 style="background:linear-gradient(135deg,#DBEAFE,#EDE9FE);"
+                 aria-hidden="true">🔭</div>
+            <!-- SWAP: <img src="images/news-science-fair.jpg" alt="Students at the 2026 Science Fair"> -->
+            <div class="news-body">
+              <span class="news-date-badge">14 Nov 2026</span>
+              <h3>Annual Science Fair 2026</h3>
+              <p>Students from Grade 6 to Form 4 showcased over 60 innovative projects,
+                 with the top three earning places at the National Science Week in Nairobi.</p>
+              <a href="#" class="read-more" aria-label="Read more about Annual Science Fair 2026">
+                Read more →
+              </a>
+            </div>
+          </article>
+
+          <article class="news-card reveal">
+            <div class="news-img-placeholder"
+                 style="background:linear-gradient(135deg,#EDE9FE,#DBEAFE);"
+                 aria-hidden="true">🏃</div>
+            <!-- SWAP: <img src="images/news-athletics.jpg" alt="Athletes competing at Inter-school Athletics Day"> -->
+            <div class="news-body">
+              <span class="news-date-badge">22 Nov 2026</span>
+              <h3>Inter-school Athletics Day</h3>
+              <p>Elimu athletes brought home 14 medals at the regional inter-school games,
+                 with standout performances in the 400 m relay and long jump.</p>
+              <a href="#" class="read-more" aria-label="Read more about Inter-school Athletics Day">
+                Read more →
+              </a>
+            </div>
+          </article>
+
+          <article class="news-card reveal">
+            <div class="news-img-placeholder"
+                 style="background:linear-gradient(135deg,#DBEAFE 30%,#EDE9FE);"
+                 aria-hidden="true">👨‍👩‍👧</div>
+            <!-- SWAP: <img src="images/news-open-day.jpg" alt="Parents and teachers at Open Day"> -->
+            <div class="news-body">
+              <span class="news-date-badge">30 Nov 2026</span>
+              <h3>Parents' Open Day</h3>
+              <p>Join us for our end-of-term open day — meet teachers, view student
+                 portfolios, and tour the newly upgraded ICT lab and library.</p>
+              <a href="#" class="read-more" aria-label="Read more about Parents' Open Day">
+                Read more →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 6 · TESTIMONIALS CAROUSEL
+    ══════════════════════════════════════════ -->
+    <section class="testimonials-section" aria-labelledby="test-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What They Say</span>
+          <h2 id="test-heading">Voices from Our Community</h2>
+          <p>Hear from the parents and students who experience Elimu every day.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="testimonial-carousel"
+             aria-roledescription="carousel"
+             aria-label="Parent and student testimonials">
+
+          <div class="carousel-track" id="carousel-track">
+
+            <!-- Slide 1 -->
+            <div class="carousel-slide" role="group"
+                 aria-roledescription="slide" aria-label="Testimonial 1 of 3">
+              <div class="quote-card">
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p class="quote-text">
+                  Elimu School transformed my daughter's confidence. The teachers don't
+                  just teach — they mentor. She went from struggling with mathematics to
+                  topping her class within a year. We couldn't be prouder.
+                </p>
+                <div class="quote-author">
+                  <div class="avatar-circle"
+                       style="background:linear-gradient(135deg,#1E3A8A,#2563EB);"
+                       aria-hidden="true">MW</div>
+                  <div>
+                    <div class="quote-author-name">Mrs. Mary Wanjiku</div>
+                    <div class="quote-author-role">Parent · Grade 10</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide" role="group"
+                 aria-roledescription="slide" aria-label="Testimonial 2 of 3">
+              <div class="quote-card">
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p class="quote-text">
+                  The Science Fair, debate club, and coding classes gave me skills no
+                  textbook could. I was accepted to the University of Nairobi's
+                  engineering programme — and I trace it all back to Elimu.
+                </p>
+                <div class="quote-author">
+                  <div class="avatar-circle"
+                       style="background:linear-gradient(135deg,#7C3AED,#5B21B6);"
+                       aria-hidden="true">JO</div>
+                  <div>
+                    <div class="quote-author-name">James Otieno</div>
+                    <div class="quote-author-role">Former Student · Class of 2024</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide" role="group"
+                 aria-roledescription="slide" aria-label="Testimonial 3 of 3">
+              <div class="quote-card">
+                <span class="quote-mark" aria-hidden="true">"</span>
+                <p class="quote-text">
+                  As a parent on the school board, I see first-hand the care that goes
+                  into every policy decision. Elimu is not just a school — it's a
+                  village raising future leaders with integrity and compassion.
+                </p>
+                <div class="quote-author">
+                  <div class="avatar-circle"
+                       style="background:linear-gradient(135deg,#2563EB,#7C3AED);"
+                       aria-hidden="true">AN</div>
+                  <div>
+                    <div class="quote-author-name">Mr. Anthony Njoroge</div>
+                    <div class="quote-author-role">Parent &amp; Board Member</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /carousel-track -->
+
+          <!-- Prev / Next + Dots -->
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="carousel-prev"
+                    aria-label="Previous testimonial">&#8592;</button>
+            <ul class="carousel-dots" role="list" aria-label="Testimonial indicators">
+              <li><button class="dot active" aria-label="Go to testimonial 1"
+                          data-index="0"></button></li>
+              <li><button class="dot"        aria-label="Go to testimonial 2"
+                          data-index="1"></button></li>
+              <li><button class="dot"        aria-label="Go to testimonial 3"
+                          data-index="2"></button></li>
+            </ul>
+            <button class="carousel-btn" id="carousel-next"
+                    aria-label="Next testimonial">&#8594;</button>
+          </div>
+
+        </div><!-- /carousel-wrapper -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 7 · ADMISSIONS FORM + CTA BAND
+    ══════════════════════════════════════════ -->
+    <section class="cta-band" id="admissions" aria-labelledby="cta-heading">
+      <div class="container">
+
+        <!-- ── Top copy ── -->
+        <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+          <span class="section-label" style="color:rgba(255,255,255,.82);">
+            Admissions Open
+          </span>
+          <h2 id="cta-heading" style="color:var(--white);">
+            Ready to join the Elimu family?
+          </h2>
+          <p style="color:rgba(255,255,255,.9);max-width:50ch;margin:0.75rem auto 0;font-size:1.05rem;">
+            Applications for the 2027 academic year are now open.
+            Fill in the form below and our admissions team will contact
+            you within one working day.
+          </p>
+        </div>
+
+        <!-- ── Application form card ── -->
+        <div class="reveal" style="max-width:720px;margin:0 auto;">
+          <div class="contact-form-card">
+
+            <!-- Status messages -->
+            <div class="form-status success" id="apply-success"
+                 role="alert" aria-live="polite">
+              ✅ Application received! Our admissions team will be in
+              touch within one working day.
+            </div>
+            <div class="form-status error" id="apply-error"
+                 role="alert" aria-live="polite">
+              ⚠️ Something went wrong. Please try again or email us at
+              <a href="mailto:info@elimuschool.ac.ke"
+                 style="color:#7F1D1D;font-weight:700;">
+                info@elimuschool.ac.ke</a>.
+            </div>
+
+            <!--
+              Formspree endpoint: https://formspree.io/f/meaadwpj
+              Hidden fields tag this submission as an Admissions
+              Application in the Formspree dashboard, keeping it
+              separate from general Contact Us enquiries.
+            -->
+            <form
+              id="apply-form"
+              action="https://formspree.io/f/meaadwpj"
+              method="POST"
+              novalidate
+            >
+              <!-- Hidden classification fields -->
+              <input type="hidden" name="enquiry_type" value="Admissions Application" />
+              <input type="hidden" name="_subject"     value="New Admissions Application – Elimu School" />
+              <!-- Honeypot anti-spam -->
+              <input type="text" name="_gotcha"
+                     style="display:none;" tabindex="-1" autocomplete="off" />
+              <!-- No-JS fallback redirect -->
+              <input type="hidden" name="_next" value="index.html?applied=1" />
+
+              <!-- Row 1: Student name + Grade applying for -->
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="apply-student-name">
+                    Student's Full Name
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="apply-student-name"
+                    name="student_name"
+                    placeholder="e.g. John Kamau"
+                    required
+                    autocomplete="off"
+                    aria-describedby="apply-err-student"
+                  />
+                  <span class="field-error" id="apply-err-student">
+                    Please enter the student's full name.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="apply-grade">
+                    Grade Applying For
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select
+                    class="form-control"
+                    id="apply-grade"
+                    name="grade_applying_for"
+                    required
+                    aria-describedby="apply-err-grade"
+                  >
+                    <option value="" disabled selected>Select grade…</option>
+                    <optgroup label="Primary">
+                      <option>Grade 1</option><option>Grade 2</option>
+                      <option>Grade 3</option><option>Grade 4</option>
+                      <option>Grade 5</option><option>Grade 6</option>
+                    </optgroup>
+                    <optgroup label="Junior Secondary">
+                      <option>Grade 7</option><option>Grade 8</option>
+                      <option>Grade 9</option>
+                    </optgroup>
+                    <optgroup label="Senior Secondary">
+                      <option>Grade 10</option><option>Grade 11</option>
+                      <option>Grade 12</option>
+                    </optgroup>
+                  </select>
+                  <span class="field-error" id="apply-err-grade">
+                    Please select a grade.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Row 2: Parent/guardian name + Relationship -->
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="apply-parent-name">
+                    Parent / Guardian Name
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="apply-parent-name"
+                    name="parent_name"
+                    placeholder="e.g. Mary Wanjiku"
+                    required
+                    autocomplete="name"
+                    aria-describedby="apply-err-parent"
+                  />
+                  <span class="field-error" id="apply-err-parent">
+                    Please enter the parent or guardian's name.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="apply-relationship">Relationship to Student</label>
+                  <select
+                    class="form-control"
+                    id="apply-relationship"
+                    name="relationship"
+                  >
+                    <option value="" disabled selected>Select…</option>
+                    <option>Mother</option>
+                    <option>Father</option>
+                    <option>Guardian</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Row 3: Email + Phone -->
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="apply-email">
+                    Email Address
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="apply-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
+                    aria-describedby="apply-err-email"
+                  />
+                  <span class="field-error" id="apply-err-email">
+                    Please enter a valid email address.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="apply-phone">
+                    Phone Number
+                    <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    type="tel"
+                    id="apply-phone"
+                    name="phone"
+                    placeholder="+254 700 000 000"
+                    required
+                    autocomplete="tel"
+                    aria-describedby="apply-err-phone"
+                  />
+                  <span class="field-error" id="apply-err-phone">
+                    Please enter a contact phone number.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Row 4: Additional message -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="apply-message">
+                    Additional Information
+                    <span style="font-size:.8rem;font-weight:400;color:#6B7280;">
+                      (optional)
+                    </span>
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="apply-message"
+                    name="message"
+                    placeholder="Any special requirements, questions, or context you'd like us to know before we get in touch…"
+                    style="min-height:100px;"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-form-submit" id="apply-submit-btn">
+                  Submit Application
+                </button>
+                <p style="font-size:.82rem;color:#6B7280;text-align:center;margin-top:.25rem;">
+                  We respect your privacy. Your information is never shared with
+                  third parties. Have a general enquiry instead?
+                  <a href="about.html#contact"
+                     style="color:var(--blue-600);font-weight:700;">
+                    Contact us here.</a>
+                </p>
+              </div>
+
+            </form>
+          </div><!-- /contact-form-card -->
+        </div><!-- /form wrapper -->
+
+      </div><!-- /container -->
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo"
+             aria-label="Elimu School – go to homepage">
+            <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="logo-grad-ft" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1E3A8A"/>
+                  <stop offset="100%" stop-color="#7C3AED"/>
+                </linearGradient>
+              </defs>
+              <circle cx="18" cy="18" r="18" fill="url(#logo-grad-ft)"/>
+              <text x="18" y="24" text-anchor="middle"
+                    font-family="-apple-system,sans-serif" font-size="18"
+                    font-weight="800" fill="#fff">E</text>
+            </svg>
+            Elimu School
+          </a>
+          <p>Nurturing minds and building leaders since 2001 — quality, holistic
+             education in a safe and inspiring environment.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#programmes">Programmes</a></li>
+            <li><a href="#news">News &amp; Events</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+            <li><a href="mailto:info@elimuschool.ac.ke">info@elimuschool.ac.ke</a></li>
+            <li><address class="footer-addr">P.O. Box 12345,<br>Nairobi, Kenya</address></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#" aria-label="Follow us on Facebook">📘 Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Twitter / X">🐦 Twitter / X</a></li>
+            <li><a href="#" aria-label="Follow us on Instagram">📸 Instagram</a></li>
+            <li><a href="#" aria-label="Subscribe on YouTube">▶️ YouTube</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <span>© 2026 Elimu School. All rights reserved.</span>
+        <span>
+          <a href="#">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="#">Terms of Use</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ──────────────────────────────────────────
+       UTILITY: detect reduced-motion preference
+    ────────────────────────────────────────── */
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ──────────────────────────────────────────
+       1. HAMBURGER MENU
+          – toggles .open on #main-nav
+          – Escape key closes it
+          – click outside closes it
+    ────────────────────────────────────────── */
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu   = document.getElementById('main-nav');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close navigation menu');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+      }
+
+      toggle.addEventListener('click', function () {
+        menu.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      /* Escape closes the menu and returns focus to toggle */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      /* Click outside closes the menu */
+      document.addEventListener('click', function (e) {
+        if (!menu.contains(e.target) && e.target !== toggle) closeMenu();
+      });
+
+      /* Close when any nav link is activated */
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+
+    /* ──────────────────────────────────────────
+       2. SCROLL-REVEAL  (IntersectionObserver)
+    ────────────────────────────────────────── */
+    (function () {
+      if (reducedMotion) return;  /* CSS already handles this; guard for safety */
+      var targets  = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      targets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ──────────────────────────────────────────
+       3. STATS COUNTER  (count-up on scroll-in)
+    ────────────────────────────────────────── */
+    (function () {
+      var card = document.getElementById('stats-card');
+      if (!card) return;
+      var counters = card.querySelectorAll('.stat-number');
+      var animated = false;
+
+      function animateCount(el) {
+        var target   = parseInt(el.dataset.target, 10);
+        var suffix   = el.dataset.suffix || '';
+        var duration = reducedMotion ? 0 : 1600;
+        var start    = performance.now();
+
+        function tick(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var eased    = 1 - Math.pow(1 - progress, 3);  /* ease-out cubic */
+          el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        duration === 0
+          ? (el.textContent = target.toLocaleString() + suffix)
+          : requestAnimationFrame(tick);
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !animated) {
+          animated = true;
+          counters.forEach(animateCount);
+          observer.disconnect();
+        }
+      }, { threshold: 0.3 });
+
+      observer.observe(card);
+    })();
+
+    /* ──────────────────────────────────────────
+       4. TABS  (keyboard-accessible: arrow keys,
+                 Home/End, click)
+    ────────────────────────────────────────── */
+    (function () {
+      var tablist = document.querySelector('[role="tablist"]');
+      if (!tablist) return;
+
+      var tabs   = Array.from(tablist.querySelectorAll('[role="tab"]'));
+      var panels = tabs.map(function (t) {
+        return document.getElementById(t.getAttribute('aria-controls'));
+      });
+
+      function activate(idx) {
+        tabs.forEach(function (tab, i) {
+          var active = (i === idx);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.setAttribute('tabindex',      active ? '0' : '-1');
+        });
+        panels.forEach(function (panel, i) {
+          if (i === idx) {
+            panel.classList.add('active');
+            panel.removeAttribute('hidden');
+          } else {
+            panel.classList.remove('active');
+            panel.setAttribute('hidden', '');
+          }
+        });
+        tabs[idx].focus();
+      }
+
+      tabs.forEach(function (tab, idx) {
+        tab.addEventListener('click', function () { activate(idx); });
+        tab.addEventListener('keydown', function (e) {
+          var next = idx;
+          if      (e.key === 'ArrowRight') next = (idx + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft')  next = (idx - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home')       next = 0;
+          else if (e.key === 'End')        next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          activate(next);
+        });
+      });
+    })();
+
+    /* ──────────────────────────────────────────
+       5. TESTIMONIALS CAROUSEL
+          – auto-rotates every 5 s
+          – pauses on hover / focus
+          – prev / next buttons
+          – dot indicators
+    ────────────────────────────────────────── */
+    (function () {
+      var wrapper  = document.getElementById('testimonial-carousel');
+      var track    = document.getElementById('carousel-track');
+      var prevBtn  = document.getElementById('carousel-prev');
+      var nextBtn  = document.getElementById('carousel-next');
+      if (!track) return;
+
+      var slides  = Array.from(track.querySelectorAll('.carousel-slide'));
+      var dots    = Array.from(document.querySelectorAll('.dot'));
+      var total   = slides.length;
+      var current = 0;
+      var timer   = null;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === current);
+        });
+        /* Update live region label for screen readers */
+        track.setAttribute('aria-label',
+          'Testimonial ' + (current + 1) + ' of ' + total);
+      }
+
+      function startAuto() {
+        if (reducedMotion) return;
+        clearInterval(timer);
+        timer = setInterval(function () { goTo(current + 1); }, 5000);
+      }
+      function pauseAuto() { clearInterval(timer); }
+
+      goTo(0);
+      startAuto();
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); startAuto(); });
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(parseInt(dot.dataset.index, 10));
+          startAuto();
+        });
+      });
+
+      wrapper.addEventListener('mouseenter', pauseAuto);
+      wrapper.addEventListener('mouseleave', startAuto);
+      wrapper.addEventListener('focusin',    pauseAuto);
+      wrapper.addEventListener('focusout',   startAuto);
+    })();
+
+    /* ──────────────────────────────────────────
+       6. ADMISSIONS APPLICATION FORM  (Formspree)
+       ─────────────────────────────────────────
+       Endpoint: https://formspree.io/f/meaadwpj
+       Hidden fields tag submissions as "Admissions Application"
+       so they're distinguishable from Contact Us enquiries.
+       Graceful no-JS fallback: form action/POST still works.
+    ────────────────────────────────────────── */
+    (function () {
+      var form      = document.getElementById('apply-form');
+      var submitBtn = document.getElementById('apply-submit-btn');
+      var successEl = document.getElementById('apply-success');
+      var errorEl   = document.getElementById('apply-error');
+      if (!form) return;
+
+      /* ── Field validation rules ──
+         Each entry: { fieldId, errorId, test(value) → bool valid }  */
+      var rules = [
+        {
+          fieldId: 'apply-student-name',
+          errorId: 'apply-err-student',
+          test: function (v) { return v.trim() !== ''; }
+        },
+        {
+          fieldId: 'apply-grade',
+          errorId: 'apply-err-grade',
+          test: function (v) { return v !== ''; }
+        },
+        {
+          fieldId: 'apply-parent-name',
+          errorId: 'apply-err-parent',
+          test: function (v) { return v.trim() !== ''; }
+        },
+        {
+          fieldId: 'apply-email',
+          errorId: 'apply-err-email',
+          test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+        },
+        {
+          fieldId: 'apply-phone',
+          errorId: 'apply-err-phone',
+          test: function (v) { return v.trim() !== ''; }
+        }
+      ];
+
+      function setFieldState(fieldId, errorId, isValid) {
+        var input = document.getElementById(fieldId);
+        var err   = document.getElementById(errorId);
+        if (!input || !err) return;
+        if (isValid) {
+          input.removeAttribute('aria-invalid');
+          err.classList.remove('visible');
+        } else {
+          input.setAttribute('aria-invalid', 'true');
+          err.classList.add('visible');
+        }
+      }
+
+      function validateForm() {
+        var allValid = true;
+        var firstInvalidEl = null;
+        rules.forEach(function (rule) {
+          var input = document.getElementById(rule.fieldId);
+          var valid = input ? rule.test(input.value) : false;
+          setFieldState(rule.fieldId, rule.errorId, valid);
+          if (!valid && !firstInvalidEl) firstInvalidEl = input;
+          if (!valid) allValid = false;
+        });
+        if (firstInvalidEl) firstInvalidEl.focus();
+        return allValid;
+      }
+
+      /* Clear individual field errors on input */
+      rules.forEach(function (rule) {
+        var input = document.getElementById(rule.fieldId);
+        if (input) {
+          input.addEventListener('input', function () {
+            if (rule.test(input.value)) {
+              setFieldState(rule.fieldId, rule.errorId, true);
+            }
+          });
+        }
+      });
+
+      /* ── Submit handler ── */
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        /* Reset status banners */
+        successEl.style.display = 'none';
+        errorEl.style.display   = 'none';
+        successEl.classList.remove('success');
+        errorEl.classList.remove('error');
+
+        if (!validateForm()) return;
+
+        submitBtn.disabled    = true;
+        submitBtn.textContent = 'Submitting…';
+
+        fetch(form.action, {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function (res) {
+          if (res.ok) {
+            successEl.style.display = '';
+            successEl.classList.add('success');
+            successEl.focus();
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            form.reset();
+          } else {
+            return res.json().then(function (json) {
+              throw new Error(json.error || 'Server error');
+            });
+          }
+        })
+        .catch(function () {
+          errorEl.style.display = '';
+          errorEl.classList.add('error');
+          errorEl.focus();
+          errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        })
+        .finally(function () {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'Submit Application';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
